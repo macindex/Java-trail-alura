@@ -1,0 +1,51 @@
+Nós já testamos várias vezes o caminho feliz e o caminho triste e todas as vezes o número secreto era 5. Para deixar mais empolgante, vamos trocar isso? O que você acha?
+
+Vamos trocar sim! O que você sugere?
+
+Podemos mudar para o número 4, que é o meu número de sorte.
+
+Beleza. Substituiremos o número 5 pelo número 4.
+
+Vamos salvar e executar no navegador para verificar como a nossa aplicação está funcionando.
+
+Com frequência nós temos que ficar atualizando a página, notou? Vamos corrigir isso mais adiante.
+
+De volta ao nosso jogo, a mensagem de "Boas-vindas ao jogo do número secreto" aparece. Vamos pelo caminho feliz primeiro. A dica que adicionamos em nosso código foi exibida no console, ficou incrível, não é?
+
+Mas apareceu a seguinte mensagem, o que ficou estranho já que mudamos o número secreto para 4:
+
+Isso ai! Você descobriu o número secreto (5)
+
+Vamos arrumar isso.
+
+Percebe como, apesar de nós alterarmos uma linha específica no nosso código, esperávamos que outras partes deveriam ter sido alteradas automaticamente, como a linha 8 no alert.
+
+No momento, estamos colocando o número manualmente nesse alert. Para funcionar como queremos, devemos alterar manualmente aqui também de 5 para 4.
+
+alert('Isso ai! Você descobriu o número secreto 4');
+
+Nós não deveríamos ter que alterar manualmente o valor do número secreto no nosso projeto. Vamos supor que o número secreto mudou. Jogamos uma semana inteira com toda a família, ganhamos todas as vezes porque sabemos qual é o número secreto. Agora o número secreto será 8. Teríamos que ir lá no código e alterar novamente para o número 8.
+
+Isso não é ideal, temos o que costumamos chamar de um acoplamento muito grande: nosso código está muito interligado, uma alteração feita deveria refletir automaticamente em outras partes. Então nós precisamos fazer uma pequena mudança.
+
+Precisamos, de alguma forma, mudar esse trecho que informa qual é o número secreto. Queremos que o valor presente nessa parte do código fosse o valor do número secreto que foi definido na parte de cima do código. Então vou escrever aqui: numeroSecreto.
+
+alert('Isso ai! Você descobriu o número secreto numeroSecreto');
+
+Porém, se rodarmos o jogo novamente, o número secreto é 8, mas quando acertamos, aparece a mensagem:
+
+Isso ai! Você descobriu o número secreto numeroSecreto
+
+Isso não funcionou. Como podemos fazer para que sejamos capazes de combinar textos com valores de variáveis e até com diferentes números?
+
+Template Strings
+
+Para juntarmos textos com valores de variáveis e até com números diferentes, existem várias maneiras de fazer isso em Javascript, e nós vamos optar por uma que se chama Template Strings.
+
+O primeiro passo dessa modificação é substituir as aspas simples por crases, também conhecida como acento grave (`).
+
+Quando insiro acentos graves, perceba que nada parece ter mudado na linha 8. Ele continua interpretando a linha como se fosse um texto, uma string. Precisamos adicionar mais um detalhe: antes do nome da variável numeroSecreto, vamos inserir um sinal de cifrão ($) e colocar a variável dentro de chaves {}.
+
+alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto}`);
+
+Nosso código
