@@ -1,0 +1,21 @@
+O console.log é uma função muito importante em linguagens de programação, especialmente quando se trabalha com JavaScript. Sua principal função é imprimir mensagens no console do ambiente de desenvolvimento, o que permite testar informações relevantes durante a execução de um programa.
+
+// Definindo o número secreto
+let numeroSecreto = Math.floor(Math.random() * 10) + 1;
+console.log(`Número secreto (gerado aleatoriamente): ${numeroSecreto}`);
+
+// Pedindo ao jogador para fazer um palpite
+let chute = prompt('Escolha um número entre 1 e 10');
+console.log(`Chute do jogador: ${chute}`);
+
+// Verificando se o chute é igual ao número secreto
+if (chute == numeroSecreto) {
+    console.log('O jogador acertou o número secreto!');
+    alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto}`);
+} else {
+    console.log('O jogador errou o número secreto.');
+    alert('Você errou :(');
+}
+
+// Mensagem final
+console.log('Fim do jogo');
