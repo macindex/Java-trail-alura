@@ -1,0 +1,88 @@
+O próximo desafio é criar uma condição que nos permita exibir uma mensagem para que a pessoa usuária entenda se acertou ou errou.
+
+Só para reforçar o que estamos aprendendo,no Javascript, existe uma forma de escrever um texto sem que esse texto seja interpretado como um comando. Seja o alert, o let, o if que escrevemos anteriormente, todos são interpretados de maneira diferente pelo código, cada um tem uma cor de fonte correspondente ao que eles fazem.
+
+Para eu conseguir criar um trecho de código que seja interpretado como um comentário, que o Javascript não entenda como comando, usarei o sinal de barra dupla//. Se escrevermos algo depois deste sinal //, salvarmos e executarmos o código, veremos que não influencia em nada no nosso projeto.
+
+Existem palavras que o Javascript entende como um comando ou código, ou seja, reconhece como uma instrução a ser executada. E existem outros termos ou símbolos que ele não entende ou reconhece.
+
+Eu quero fazer um comentário nesse código para justamente informar o que nós estamos comparando. O comando if em português significa "Se". Ou seja, estamos falando "se o chute for igual ao número secreto, podemos executar alguma coisa. Vamos deixar um comentário acima do if informando isso.
+
+// se chute for igual ao número secreto
+if (chute == numeroSecreto) {
+    console.log('Isso ai! Você descobriu o número secreto (5)');
+
+}
+Copiar código
+Mas, se queremos que uma ação seja executada quando a condição não for alcançada, ou seja, caso o número não seja igual ao número secreto, precisamos de um comando que faça esse "contraponto".
+
+Para fazer isso também precisamos de uma palavra especial. A gente pode escrever, por exemplo, o termo "senão". Dá pra ver até pela cor azulada que ele não vai funcionar. O if é um comando que funciona e está com uma cor rosada, como ele está considerando o "senao" como azul, é como se estivéssemos criando alguma coisa nova.
+
+No Javascript, para representar o "se não", usamos a palavra else para isso, "else" em português significa "se não".
+
+Ao escrevermos "else", note que ele mudou a cor, a fonte está com uma cor rosada agora.
+
+Quando escrevemos else, precisamos criar um bloco de instruções, assim como fizemos com if. Por exemplo, posso exibir um alerta, um alert, informando que a pessoa errou. Neste caso, a mensagem será: "Você errou :(".
+
+// se chute for igual ao número secreto
+if (chute == numeroSecreto) {
+    console.log('Isso ai! Você descobriu o número secreto (5)');
+} else {
+    alert('Você errou :(')
+}
+Copiar código
+Podemos salvar e atualizar a página do navegador para testarmos o caminho feliz e o caminho triste.
+
+No navegador, ao digitarmos, por exemplo, "3" no campo de texto da caixa de "Escolha um número entre 1 e 10". Vai aparecer a mensagem "Você errou :(".
+
+Podemos fazer uma coisa diferente, em vez de exibir no console quando a pessoa acertar o número, que tal exibir um alerta assim como fazemos quando a pessoa erra?
+
+Acredito que é até melhor! Isso tornará a interação ainda mais amigável e interativa. Porque olhe tudo que a pessoa teve que fazer para visualizar o que está no console. Ele é uma ferramenta aprimorada para visualizar se há alguma interação no seu código, se está funcionando, se você conseguiu resgatar um valor corretamente.
+
+Porém, não é recomendado para fazer essa interação com o usuário porque é uma ferramenta da pessoa desenvolvedora e não uma ferramenta direta para o usuário. Isso é do que se trata a parte do console que estamos observando.
+
+Você me deu uma ideia. O que você acha se colocarmos no console apenas o valor do número secreto?
+
+Por exemplo, vou jogar com a minha família. Dou uma olhada no console, vejo qual é o número secreto e chamo as pessoas. Legal, né? Gostei dessa ideia.
+
+Portanto, o que vou fazer? Irei fazer uma troca aqui. Vou substituir console.log por alert e quando definimos o número secreto, vou exibir no console apenas o valor do número secreto. Com o console.log(). Como se fosse um recurso que só nós conhecemos.
+
+E aqui tem algo diferente. Se colocarmos nesse console.log(), entre aspas simples, 'numeroSecreto', veja o que vai acontecer no nosso programa.
+
+alert('Boas vindas ao jogo do número secreto');
+let numeroSecreto = 5;
+console.log('numeroSecreto')
+let chute = prompt('Escolha um número entre 1 e 10');
+
+// se chute for igual ao número secreto
+if (chute == numeroSecreto) {
+    alert('Isso ai! Você descobriu o número secreto (5)');
+} else {
+    alert('Você errou :(')
+}
+Copiar código
+Ao executarmos a aplicação no navegador, só apareceu no console a informação:
+
+numeroSecreto
+
+Por quê? O que fizemos de diferente aqui?
+
+Você colocou as aspas simples, então ele está interpretando como um texto. Até me lembro da questão do número que comentei. Quando usamos, não usamos aspas para ele entender que é um número. E nesse console.log() é o mesmo caso. Queremos pegar o valor da variável e não um texto em si.
+
+Correto. Sempre que mencionamos especificamente a variável, não precisamos usar as aspas simples ,certo?
+
+Também gostaria de fazer uma observação, pois ele já mostrou o número secreto escrito antes de acertarmos ou erramos. Porque o JavaScript lê o nosso código linha por linha. O console.log() estava sendo lido antes do pedido de escolher um número.
+
+Vamos executar mais uma vez. Vamos atualizar.
+
+Agora apareceu o número 5 no console. Eu vi antes das demais pessoas. Vou palpitar o número 5. Olha aí, acertei. Venci as demais pessoas.
+
+Vamos testar agora o caso que não dá certo. E ele dá a mensagem informando que a pessoa errou.
+
+Legal. O próximo passo que precisamos realizar no nosso código é o seguinte: caso a pessoa erre, queremos dar uma esperança para ela no nosso projeto.
+
+Todo mundo pode ter a capacidade de acertar o jogo do número secreto, assim como foi o meu caso.
+
+Sim. Você fez várias tentativas e eu fui dando dicas até chegar no resultado correto.
+
+Então, é isso que vamos fazer na sequência!
