@@ -1,0 +1,4 @@
+Aqui você pode baixar o zip da aula 02 ou acessar os arquivos no Github!
+
+https://github.com/alura-cursos/logica-js/archive/refs/heads/aula_2.zip
+
