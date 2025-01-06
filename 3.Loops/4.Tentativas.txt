@@ -1,0 +1,124 @@
+Então, você está de prova que Guilherme me pediu para corrigir quando ele não utilizar ponto e vírgula. Antes de qualquer coisa, vamos, aproximadamente na terceira linha, colocar um ponto e vírgula no final do console.log, e também na linha 4, no let shoot, assim como na linha 16 no último alert.
+
+Depois disso, agora nós podemos adicionar um pouco acrescentar mais coisas ao jogo, deixá-lo mais agradável, ou seja, a adição da funcionalidade que contabiliza quantas tentativas a pessoa demorou para acertar.
+
+Vamos fazer isso! A ideia é pensar em quantas tentativas foram necessárias para descobrir o número secreto. Como fazemos isso?
+
+Primeiro, temos que armazenar esse valor em algum lugar, quantas tentativas a pessoa fez. Então, podemos criar uma variável, mais ou menos na linha 5, utilizando um let tentativas que vai iniciar com o valor 1, porque o jogo já começa com a pessoa realizando a primeira tentativa.
+
+Não se esqueça do ponto e vírgula.
+
+app.js
+
+// código omitido
+
+let chute;
+let tentativas = 1;
+
+// código omitido
+Copiar código
+Depois, quando entramos no while, note que em algum momento nós precisaremos informar: "Você perdeu uma tentativa". Então, teremos que subtrair, quando a pessoa fizer o chute, mas não é na linha 9 onde temos chute = prompt('Escolha um número entre 1 e 100'); que vamos somar.
+
+Se fizermos isso muito próximo disso, pode ser que esta soma aconteça antes mesmo da pessoa fazer a tentativa. Muitas coisas têm que acontecer para podermos somar.
+
+Se adicionamos a tentativa somando após o while(chute != numeroSecreto) na primeira vez, o que vai acontecer?
+
+Já iniciou na primeira tentativa, perguntou qual é o número secreto e já está somando mais uma, ou seja, duas tentativas na primeira vez.
+
+Sendo que a pessoa que está jogando fez apenas uma tentativa, então não será aqui que vamos somar essa tentativa.
+
+No if, quando acertamos o número secreto, também acho que não é o lugar de adicionar a tentativa.
+
+Senão, essa contagem só vai acontecer quando a pessoa acertar, e isso não é o que queremos.
+
+Quando chegamos no else, temos uma possibilidade. Aqui faz mais sentido, pois a pessoa não acertou o número secreto e perdeu a tentativa dela. Então, independente do número secreto ser maior ou menor, notamos que estamos finalizando a instrução do else.
+
+Quando colocamos o cursor sobre o colchete {}, ele ilumina o colchete correspondente que está fechando. Se formos para a próxima linha, note que eu ainda estou na instrução do else. O que podemos fazer? Aqui temos certeza que a pessoa errou, que a pessoa não acertou e perdeu uma tentativa.
+
+Portanto, podemos fazer assim: tentativas = tentativas + 1;. Isto é, a tentativa é igual ao valor que temos na variável tentativas mais um, +1.
+
+app.js
+
+// código omitido
+
+    // se chute for igual ao número secreto
+    if (chute == numeroSecreto) {
+        alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto}`);
+    } else {
+        if (chute > numeroSecreto) {
+            alert(`O número secreto é menor que ${chute}`);
+        } else {
+            alert(`O número secreto é maior que ${chute}`);
+        }
+        tentativas = tentativas + 1;
+    }
+
+// código omitido
+Copiar código
+O que você achou deste código aqui, Moni?
+
+Eu acho que poderia seguir com ele, mas aí precisamos analisar a regra de negócio. A tentativa que é certa, ela conta como uma tentativa?
+
+Conta.
+
+Então, não deveria ficar dentro do else. Ela deveria ficar fora para contar também quando a pessoa acerta.
+
+Boa, Moni. tentativas = tentativas + 1;. Faz sentido?
+
+Faz, mas tem uma maneira que podemos escrever a mesma coisa, só que de forma mais concisa e clara.
+
+Certo. E é provavelmente mais utilizada no dia a dia.
+
+Isso.
+
+Como podemos fazer isso?
+
+Para isso, vamos colocar em outra linha para conseguir fazer a comparação entre as duas maneiras. Então, na linha 20, coloca tentativas++;. Com esse Tentativas++ irá ter o mesmo comportamento da linha acima.
+
+Podemos comentar a última forma que aplicamos. Então, sempre que quiser pegar o valor de uma variável, somar, atribuir um, incrementar um, que é o nome que utilizamos, utilizamos tentativas++ e não esqueça do ponto e vírgula.
+
+++ Atribuir +1
+
+app.js
+
+// código omitido
+
+    // se chute for igual ao número secreto
+    if (chute == numeroSecreto) {
+        alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto}`);
+    } else {
+        if (chute > numeroSecreto) {
+            alert(`O número secreto é menor que ${chute}`);
+        } else {
+            alert(`O número secreto é maior que ${chute}`);
+        }
+        // tentativas = tentativas + 1;
+                tentativas++;
+    }
+
+// código omitido
+Copiar código
+A última coisa que nos resta agora é falar: Quantas tentativas foram necessárias para descobrir o número secreto?
+
+Quando acertamos é informado que descobrimos o número secreto vamos inserir o sinal de cifrão após o template string e abrir chaves. Dentro dessas chaves escreveremos tentativas. Isso retornará o valor contido na variável tentativas, que é exatamente o que queremos. Adicionaremos também um texto explicativo.
+
+app.js
+
+// código omitido
+
+    // se chute for igual ao número secreto
+    if (chute == numeroSecreto) {
+        alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativas`);
+    } 
+        
+// código omitido
+Copiar código
+Podemos fazer um teste agora. Vamos jogar voltando ao jogo no navegador. Môni, vou deixar você escolher os números, tudo bem?
+
+Tudo bem!
+
+E não esqueça de fazer o controle das tentativas também. Vá em frente!
+
+Assim sendo, damos as boas-vindas ao jogo do número secreto. Quero escolher o número um. Depois o número oito. E para finalizar, o número cinco.
+
+A mensagem exibida foi que eu descobri o número secreto em três tentativas. Isso porque ele conta as duas tentativas que eu errei e também a tentativa correta.
