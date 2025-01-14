@@ -1,0 +1,73 @@
+Temos um problema no nosso código. Moni, o que vai acontecer se a pessoa acertar o número de primeira?
+
+Vamos aproveitar a nossa "cola" no console para testar isso.
+
+Inicialmente, recebemos o alerta com a mensagem "Boas-vindas ao jogo do número secreto". Em seguida, temos o prompt "Escolha um número entre 1 e 10". Digitamos 5 e confirmamos. Feito isso, recebemos a mensagem "Isso aí! Você descobriu o número secreto 5 com 1 tentativas". Isso soa um pouco estranho.
+
+Esperávamos que, ao descobrir na primeira tentativa, fosse exibido "Você descobriu com 1 tentativa", usando "tentativa" no singular. Então, vamos precisar escrever essa validação.
+
+Criando uma nova validação
+Analisando a problemática, parece que vamos criar uma nova condicional.
+
+Isso nos causa preocupação, porque, se observarmos bem, vamos precisar criar essa condição dentro do bloco if da linha 11.
+
+app.js:
+
+if (chute == numeroSecreto) {
+    alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativas.`);
+}
+
+E se criarmos mais 10, 15, 20, 30 condições? Serão todas dentro do if?
+
+Já estamos fazendo uma condição no momento. Então, imagine quão longo poderia ficar o código se adicionássemos vários blocos if repetidamente.
+
+De alguma forma, queremos interromper o while. Caso o chute seja igual ao numeroSecreto, queremos que o while pare. Para isso, existe um código chamado break.
+
+if (chute == numeroSecreto) {
+    break;
+    alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativas.`);
+}
+
+Perceba que, só de inserir o break, o alert() abaixo é ignorado. Independentemente do que tenha depois, o código irá parar. Porém, se deixarmos da forma como está, executarmos o código, e acertarmos o número, nada irá acontecer. Não será exibida a mensagem e não serão ditas quantas tentativas usamos.
+
+Ele vai realmente parar.
+
+Então, o que precisaremos fazer será remover toda a linha 13 e colocá-la fora do while, na linha 24. Dessa forma, teremos o nosso jogo funcionando da maneira desejada.
+
+Trecho a ser movido:
+
+alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto}`);
+Copiar código
+Resultado do bloco condicional:
+
+if (chute == numeroSecreto) {
+    break;
+}
+
+Testando o código
+Que tal testar para garantir?
+
+Vamos lá! Na página do jogo no navegador, vamos digitar o número secreto indicado no console (5) para acertar de primeira. Nesse caso, a mensagem será "Isso aí! Você descobriu o número secreto 5 com 1 tentativas.".
+
+Ainda temos o problema na frase, mas conseguimos entender o que está acontecendo. Temos um laço de repetição que repete todas as instruções até acertarmos o número. Quando acertamos, o laço para e chama o alert() que está fora do while. Basicamente, foi isso que fizemos.
+
+Ajustando o alerta exibido
+Nosso próximo desafio é corrigir a palavra "tentativas". Para isso, precisamos criar um if para dizer que se tentativas for maior do que 1, significa que o alert() exibido vai usar "tentativas" no plural. Caso contrário (else), o que vamos fazer?
+
+Faremos algo semelhante ao que está na linha 25, que é o alert(), mas com a palavra "tentativa" no singular.
+
+if (tentativas > 1) {
+    alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativas.`);
+} else {
+    alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativa.`);
+}
+Copiar código
+Vamos testar? De volta para a página no navegador, vamos acertar de primeira novamente digitando o número exibido no console (5). Agora a mensagem será "Você descobriu o número secreto 5 com 1 tentativa". Maravilha!
+
+Vamos executar mais uma vez o jogo, agora acertando com duas tentativas. O importante é testar se nossa condicional está funcionando.
+
+Dessa forma, teremos a mensagem "Você descobriu o número secreto com 2 tentativas". Ficou bem melhor!
+
+Agora, pelo menos em termos de concordância, está correto!
+
+
