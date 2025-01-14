@@ -1,0 +1,87 @@
+Há um aspecto em nosso projeto que ainda nos incomoda: todas as vezes nós sabemos qual é o número secreto. Dessa forma, o jogo não tem graça.
+
+Nosso objetivo é que, toda vez que formos jogar, haja um número novo, um número aleatório. Vamos implementar isso em nosso projeto?
+
+Vamos explorar as funcionalidades do JavaScript!
+
+Número aleatório com a função Math.random()
+Primeiramente, vamos abrir a documentação do JavaScript. Para isso, basta procurar por "JavaScript" no Google e acessar o primeiro link da Mozilla.
+
+Nessa documentação, encontramos todas as informações sobre como o JavaScript funciona. Ela menciona que existe um padrão ECMAScript, ou seja, a convenção para saber o que colocar e o que não colocar no JavaScript, as funcionalidades dos navegadores, entre outras coisas.
+
+Vale a pena realizar essa leitura posteriormente!
+
+Neste momento, o que queremos é criar um número aleatório com o JavaScript. Então, vamos procurar por "número aleatório JavaScript Mozilla" no Google e selecionar o link da documentação do JavaScript.
+
+Realizada a busca no navegador, é exibida a informação de que a função chamada Math.random() retorna um número pseudo aleatório no intervalo entre 0 e 1.
+
+Vamos acessar a documentação para tentar decifrar isso?
+
+Analisando a documentação
+Por padrão, utilizamos um tipo de número chamado de inteiro. Isso significa que é um número sem casas decimais, como 1, 2, 3, -1, -2, -3 e assim por diante.
+
+A função Math.random() retorna um número pseudo aleatório, porque o computador por si só não consegue gerar um número completamente aleatório.
+
+Ele tentará obter de algum lugar, de alguma forma, alguma coisa no próprio computador, seja o relógio, o delta, ou o tempo, multiplicará por algo e nos fornecerá um número.
+
+Existem diversas funcionalidades. Existe algo chamado seed (semente), por exemplo, um número que colocamos no computador e que gerará possíveis números aleatórios.
+
+Não é nada disso que queremos agora. Por isso, se diz que a função retorna um número pseudo aleatório e não um número aleatório.
+
+Inclusive, existem outros conteúdos aqui na Alura. Há um artigo que estará no Para saber mais que explica minuciosamente como funciona a geração de números aleatórios.
+
+Nosso desafio é ler a documentação e tentar entender como funciona a função Math.random(). No site, é mencionado que o número pseudo aleatório que será gerado está no intervalo de 0 e 1 ([0, 1[), incluindo o próprio 0, mas sem incluir o próprio 1.
+
+Em outras palavras, isso significa que será gerado um número maior do que 0, ou seja, algo como 0.9354, e menor do que 1. O valor passado como segundo argumento para a função sempre será excluído.
+
+Abaixo na documentação, temos alguns exemplos de como gerar essa função.
+
+Vamos testar isso no navegador?
+
+Vamos lá!
+
+Vamos clicar com o botão direito na tela do navegador para abrir a aba "Inspecionar", como já aprendemos anteriormente. Em seguida, vamos clicar na aba "Console".
+
+Para limpar o console, usaremos o atalho "Ctrl + L".
+
+Vamos começar a digitar a função Math.random(). Ao fazer isso, note que uma sugestão para completar a função é apresentada. Duas coisas importantes nessa função: o "M" de “Math” precisa ser em letra maiúscula e o "random" em letra minúscula.
+
+Sempre que quisermos utilizar essa geração de números pseudo aleatórios, vamos abrir e fechar parênteses ao final da função.
+
+Math.random()
+Copiar código
+Dessa forma, ao teclar "Enter", será gerado um número aleatório, que no caso do instrutor foi 0.581 e assim por diante. Usando novamente a função, é gerado outro número: 0.929.
+
+Existe um problema: nosso jogo não solicita que se digite um número menor do que zero.
+
+Imagine quão difícil seria acertar o número 0.2595555, nós precisaríamos de várias tentativas para chegarmos próximo do número.
+
+Não conseguiríamos acertar esse número com tantas casas decimais. Então, qual é o problema? Podemos utilizar a função Math.random? Sim, mas não desta forma.
+
+E se nós pegássemos esse número gerado, que é sempre menor do que 1, e mudássemos a posição da vírgula uma casa para a direita? Ou seja, se nós multiplicássemos esse número por 10, nós teríamos um número maior do que zero.
+
+Então, vamos estar essa multiplicação por 10 no console.
+
+Math.random() * 10
+Copiar código
+Ao pressionar "Enter", teremos números maiores que zero, um avanço, mas ainda há muitas casas decimais nos números, e nós precisamos apenas do número inteiro.
+
+Já sabemos que vamos utilizar Math.random() * 10, mas precisamos apenas da parte inteira do número. Há um comando em JavaScript que faz exatamente isso: ele pega somente a parte inteira do número, descartando os decimais após a vírgula. Esse comando é chamado de parseInt.
+
+Mas temos um desafio. Precisamos pegar todo o conteúdo Math.random() * 10 e utilizá-lo dentro do comando parseInt(). Então, vamos colocar esse trecho entre os parênteses do comando e pressionar "Enter".
+
+parseInt(Math.random() * 10)
+Copiar código
+
+
+Caso queira saber mais sobre parseInt(), recomendamos que você consulte a documentação. Saber ler a documentação é um recurso muito importante para quem trabalhará com desenvolvimento de software.
+
+Às vezes, o exemplo que precisamos está tão longe do que usamos que parece que a documentação não nos ajuda, porém é importante conseguir pesquisar, testar e não ter medo de executar o código.
+
+Isso não é exclusivo do JavaScript. Qualquer linguagem que você decidir utilizar nessa jornada também terá uma documentação bem completa disponível na internet. É apenas uma questão de aprender a pesquisar nela corretamente!
+
+Toda vez que pedirmos para gerar um número com parseInt(Math.random() * 10), o computador gerará um número onde o valor pelo qual estamos multiplicando será exclusivo. Ou seja, não será gerado o número 10.
+
+No nosso projeto, precisamos de um número entre 1 e 10. Como parseInt(Math.random() * 10) gera um número entre 0 e 9, nós podemos simplesmente adicionar 1 a esse resultado por meio de concatenação. Porém, essa explicação ficará para a próxima aula.
+
+parseInt(Math.random() * 10 + 1)
