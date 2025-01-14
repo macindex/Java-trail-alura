@@ -1,0 +1,56 @@
+No nosso código, temos diversos blocos if que foram repetidos várias vezes, porque é uma estrutura comumente utilizada na programação e é importante praticá-la.
+
+Porém, existem maneiras de evitar repetir tanto o mesmo código. Como poderíamos simplificar esta condição de tentativas para alterar o uso do singular e do plural?
+
+Refatorando o código
+Uma dessas maneiras, que talvez não seja a mais simples, mas é bastante utilizada, é através de um código JavaScript. Você verá este tipo de código sendo usado frequentemente no mercado, e eles costumam estar escritos da forma que mostraremos a seguir.
+
+A ideia não é mudar o comportamento, mas sim a forma que o mercado escreve o bloco if…else. Se observarmos a frase Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativas. na linha de código 25, percebemos que todo o texto é igual ao do bloco else, exceto a letra "S" na palavra "tentativas". De toda a nossa sentença, a única coisa que muda é o uso desta palavra no singular ou no plural.
+
+Portanto, vamos declarar com let uma variável chamada palavraTentativa. Na variável palavraTentativa, vamos verificar quantas tentativas nós temos. Para isso, vamos digitar tentativas > 1 ?.
+
+app.js:
+
+let palavraTentativa = tentativas > 1 ?
+Copiar código
+Note que agora a forma que estamos escrevendo se assemelha a escrever um texto.
+
+Após colocar a interrogação, adicionaremos um espaço. O que for colocado na sequência será realizado caso tentativas seja maior do que um. Nesse caso, se tentativas for maior do que um, será utilizada a palavra "tentativas" (no plural).
+
+Se tentativas não for maior que um, usaremos dois-pontos (:) e utilizamos a palavra "tentativa" (no singular).
+
+let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+Copiar código
+Isso que fizemos se chama de operador ternário. Esse recurso também é encontrado em outras linguagens, não apenas no JavaScript. Ele é interessante, porque facilita a leitura do código, exatamente como escrevemos: "Tentativas é maior que um? Então, faça X. Caso contrário, faça Y".
+
+Obtemos o mesmo resultado, então podemos substituir o bloco anterior de código. No lugar de escrever todo o bloco if…else da linha 26 à 30, vamos comentar esse trecho.
+
+// if (tentativas > 1) {
+//     alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativas.`);
+// } else {
+//     alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativa.`);
+// }
+Copiar código
+Feito isso, vamos copiar o alert() da linha 27 e colocar abaixo da declaração da variável palavraTentativa.
+
+No lugar de exibir a string "tentativas", queremos exibir a nossa nova variável, palavraTentativa, que guarda se a palavra será exibida no plural ou no singular.
+
+let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} ${palavraTentativa}.`);
+Copiar código
+Agora, nas duas linhas de código escritas, temos o mesmo comportamento que nas quatro linhas anteriores. Isso é algo comum com que vamos nos acostumar.
+
+Você pode estar se perguntando: "será que eu não podia criar o else e o if de outra forma em nosso código?". Sim, poderíamos. Existem diversas possibilidades. Modificar o código e alterar alguma parte dele talvez o torne mais legível, por exemplo.
+
+Lembre-se: o nosso código vai mudar e passar por alterações. O importante é saber dar nomes às variáveis de forma que façam sentido e, aos poucos, evoluir o código.
+
+Nós criamos as tentativas de uma forma que conhecemos e depois usamos uma condição diferente. Este segundo tipo de código será encontrado por você no mercado. Principalmente, no momento de trabalhar como pessoa desenvolvedora, é muito importante se familiarizar com isso.
+
+Testando o código
+Agora vamos testar! A ideia é que, em ambos os casos, tenhamos uma ou mais de uma tentativa.
+
+Atualizando o live server, vamos jogar o jogo do número secreto. Quantas tentativas nós faremos dessa vez, Moni?
+
+Vamos testar com duas tentativas.
+
+Acertando com duas tentativas, receberemos a mensagem "Isso aí! Você descobriu o número secreto 5 com 3 tentativas", no plural. Por outro lado, descobrindo de primeira o número, teremos a mensagem "Você descobriu o número secreto 5 com 1 tentativa" no singular.
