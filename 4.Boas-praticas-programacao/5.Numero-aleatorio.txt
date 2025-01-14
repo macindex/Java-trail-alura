@@ -1,0 +1,39 @@
+Nós já revisamos a documentação e testamos como funciona a questão de gerar números aleatórios de uma maneira geral, mesmo que não tenhamos usado no nosso projeto. Nós conseguimos desmembrar e visualizar o que cada uma daquelas funcionalidades fazem.
+
+Chegou a hora de aplicar o gerador de números aleatórios!
+
+Aplicando o gerador de números aleatórios
+De volta ao nosso código, na linha 2, onde declaramos a variável numeroSecreto, vamos escrever o que estudamos no vídeo anterior
+
+Relembrando: a função Math.random() vai gerar um número entre 0 e 1, sendo que 1 é exclusivo, ou seja, não vai aparecer. Vamos multiplicar esse número por 10, o que irá mover a casa decimal para o lado e receberemos números maiores ou iguais a zero, como 1, 2, 3, 0, 5, 9, seguido de vários valores decimais depois da vírgula.
+
+Nós não queremos esses valores após a vírgula, apenas a parte inteira. Portanto, envolveremos o trecho Math.random() * 10 no comando parseInt(). No entanto, dessa forma, teremos um número entre 0 e 9, e queremos um número entre 1 e 10. Para isso, concatenaremos a multiplicação por 10 ao valor 1.
+
+app.js:
+
+let numeroSecreto = parseInt(Math.random() * 10 + 1);
+Copiar código
+Ao testar no navegador, teremos a mensagem de boas-vindas ao jogo inicialmente; em seguida, tentaremos adivinhar o número. Nesse caso, o número secreto foi 2, então nosso código funcionou corretamente!
+
+Ampliando o jogo
+O desafio é o seguinte: descobrir o número entre 1 e 10 está fácil; com 3 ou 4 tentativas, conseguimos adivinhar. Que tal colocar um número bem maior? Por exemplo, entre 1 e 100?
+
+Minha dúvida é, onde, de fato, alteramos esses valores?
+
+Como multiplicamos a linha do Math.random() por 10, porque queríamos que passasse uma casa decimal para a direita, uma vez que já tinha uma, nós obtivemos um número com duas casas decimais.
+
+Quando chegamos no 100, queremos três. Por isso, acredito que podemos multiplicar por 100; assim, teremos números com três dígitos até o 100.
+
+let numeroSecreto = parseInt(Math.random() * 100 + 1);
+Copiar código
+Então, os números vão de 0 a 99 nesse primeiro passo. Porém, concatenamos com 1, então teremos números de 1 a 100, conforme desejado.
+
+Precisamos também alterar o prompt() do chute, na linha de código 9. Isso é importante, pois a pessoa jogadora não vai saber que mudamos o jogo.
+
+chute = prompt('Escolha um número entre 1 e 100');
+Copiar código
+Note que isso é um acoplamento. O valor alterado na variável numeroSecreto reflete em outra parte do nosso código.
+
+Testando o código
+Vamos jogar novamente? Após a mensagem de boas-vindas, teremos o prompt "Escolha o número entre 1 e 100". O chute será 50. O número secreto é maior que 50, então vamos testar 75. Teremos o retorno "O número secreto é maior que 75", então vamos testar 83. "O número secreto é menor que 83". Testando 78, temos que o número é ainda menor. Ao testar 76, temos que o número é maior. Então, o número secreto é 77. Descobrimos com 6 tentativas!
+
