@@ -1,0 +1,43 @@
+Agora, vamos resolver rapidamente antes do Guilherme retornar.
+
+Resolução do desafio
+Quero criar um local onde possa inserir o valor que será o máximo do jogo. Para criar essa lógica, necessito de uma variável.
+
+Na linha 2, pressionamos "Enter" para pular linha. Vamos inserir outra variável chamada numeroMaximo somente com "M" em maiúsculo, que receberá do número máximo desejado.
+
+Por enquanto, vou inserir 5000. Mas este valor é apenas para teste, você pode colocar qualquer um.
+
+let numeroMaximo = 5000;
+Copiar código
+Agora vamos realizar algumas substituições. Queremos que o código faça uma alteração no método Math.random() de acordo com o valor dentro da variável numeroMaximo.
+
+Na linha 3, onde tem a variável numeroSecreto, trocamos o 100 por numeroMaximo.
+
+let numeroSecreto = parseInt(Math.random() * numeroMaximo + 1);
+Copiar código
+Atenção: Precisamos garantir que numeroMaximo seja escrito exatamente como o nome da variável que criamos anteriormente!
+
+Outro local que precisa ser alterado é o feedback para a pessoa usuária. Como ela saberá que o jogo mudou o intervalo para 1 a 5000 se não a informamos?
+
+Portanto, na linha 10, onde temos o chute, vamos remover as aspas e inserir crases, tanto no início quanto no final da frase "Escolha um número entre 1 a 100".
+
+Em vez de 100, vamos apagar e adicionar o símbolo cifrão ($) seguido de abre e fecha chaves ({}). Dentro das chaves, vamos colocar o numeroMaximo.
+
+while (chute != numeroSecreto) {
+    chute = prompt(`Escolha um número entre 1 a ${numeroMaximo}`);
+
+    // código omitido…
+}
+Copiar código
+Teste
+Vamos testar se esta alteração funcionou. No navegador, já temos o console aberto.
+
+Dica: Você pode abrir o console usando um atalho, a tecla "F12" do seu teclado!
+
+Na mensagem de boas-vindas ao jogo do número secreto, podemos apertar "OK". O jogo já informa que devemos escolher um número entre 1 e 5.000.
+
+No console, podemos conferir que o número sorteado foi 538. Antes, o máximo seria apenas 100. Com isso, já percebemos que a alteração funcionou.
+
+Caso a pessoa que está jogando deseje modificar o valor máximo, ela pode simplesmente ir na linha 2, no Visual Studio Code, onde tem o let numeroMaximo e alterar para o número desejado.
+
+Por fim, conseguimos concluir esse desafio, revisando os conceitos de variável e template strings, além do uso dessas variáveis em expressões semelhantes a expressões matemáticas, como é o caso do Math.random().
